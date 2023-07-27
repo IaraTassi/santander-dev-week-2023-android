@@ -58,7 +58,7 @@ fun MainApp(response: Response? = null) =
             content = { innerPadding ->
                 ConstraintLayout(modifier = Modifier.padding(innerPadding)) {
 
-                    val (header, spacer, balanceCard, menuItems, creditCard, newsPagerApp) = createRefs()
+                    val (header, spacer, balanceCard, menuItems, creditCard, news) = createRefs()
 
                     Header(
                         modifier = Modifier.constrainAs(header) {
@@ -94,7 +94,7 @@ fun MainApp(response: Response? = null) =
                                 vertical = Spacing_3
                             )
                             .constrainAs(menuItems) {
-                                top.linkTo(menuItems.bottom)
+                                top.linkTo(balanceCard.bottom)
                             },
                         features = response?.features ?: emptyList()
                     )
@@ -105,21 +105,21 @@ fun MainApp(response: Response? = null) =
                                 horizontal = Spacing_2
                             )
                             .constrainAs(creditCard) {
-                                top.linkTo(creditCard.bottom)
+                                top.linkTo(menuItems.bottom)
                             },
                         number = response?.card?.number ?: ""
                     )
 
                     NewsPagerApp(
+                        news = response?.news ?: emptyList(),
                         modifier = Modifier
                             .padding(
                                 horizontal = Spacing_2,
                                 vertical = Spacing_2
                             )
-                            .constrainAs(newsPagerApp) {
-                                top.linkTo(newsPagerApp.bottom)
-                            },
-                        news = response?.news ?: emptyList(),
+                            .constrainAs(news) {
+                                top.linkTo(creditCard.bottom)
+                            }
                     )
 
                 }
