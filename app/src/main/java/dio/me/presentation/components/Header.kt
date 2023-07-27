@@ -35,17 +35,17 @@ fun Header(
                 horizontal = Spacing_2,
                 vertical = Spacing_4
             )
-        )
-        {
+        ) {
             Text(
                 text = "Olá, $name",
                 color = Color.White
             )
+            Text(
+                text = "Ag $agency Cc $number",
+                color = Color.White
+            )
+
         }
-        Text(
-            text = "Ag, $agency Cc $number",
-            color = Color.White
-        )
     }
 }
 
@@ -53,6 +53,6 @@ fun Header(
 @Composable
 fun HeaderPreview() {
     SantanderDevWeekTheme {
-       Header(name = "Iara", agency = "0000", number = "0000")
+        Header(name = "Iara", agency = "0000", number = "0000")
     }
 }
