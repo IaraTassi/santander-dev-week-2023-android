@@ -111,7 +111,7 @@ fun MainApp(response: Response? = null) =
                     )
 
                     NewsPagerApp(
-                        news = response?.news ?: emptyList(),
+
                         modifier = Modifier
                             .padding(
                                 horizontal = Spacing_2,
@@ -119,7 +119,8 @@ fun MainApp(response: Response? = null) =
                             )
                             .constrainAs(news) {
                                 top.linkTo(creditCard.bottom)
-                            }
+                            },
+                        news = response?.news ?: emptyList(),
                     )
 
                 }
